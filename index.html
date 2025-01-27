@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        font-family: "Montserrat", sans-serif;
+        color: #2a2a2a;
+        background-color: #fff9ec;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+      "
+    >
+      <h4>
+        Czy zostaniesz moją Walentynką Ty moja najukochańsza narzeczono? (Spróbuj nacisnąć "Nie" 😏😏😏) 💛
+      </h4>
+      <div style="flex-direction: row;">
+        <img src="pizza.svg" style="width: 20%" />
+        <img src="cinema.svg" style="width: 20%" />
+        <img src="heart.png" style="width: 20%" />
+      </div>
+      <div style="flex-direction: row; gap: 2rem">
+        <div style="background-color: #73B063; padding: 0 3rem; border-radius: 1rem; cursor: pointer;"><p>Tak</p></div>
+        <div style="background-color: #FF5F5F; padding: 0 3rem; border-radius: 1rem;"><p>Nie</p></div>
+      </div>
+    </div>
+    <script>
+      const yes = document.querySelector("div > div > div:nth-child(1)");
+      const no = document.querySelector("div > div > div:nth-child(2)");
+
+      yes.addEventListener("click", () => {
+        const lastDiv = document.querySelector("div > div:last-child");
+        lastDiv.innerHTML = "<p>Hurra! Kocham Cię bardzo! 💛</p>";
+      });
+
+      no.addEventListener("click", () => {
+        alert("😢");
+      });
+      no.addEventListener("mouseover", () => {
+        const randomX = Math.floor(Math.random() * (window.innerWidth - no.offsetWidth));
+        const randomY = Math.floor(Math.random() * (window.innerHeight - no.offsetHeight));
+        no.style.position = "absolute";
+        no.style.left = `${randomX}px`;
+        no.style.top = `${randomY}px`;
+      });
+    </script>
+  </body>
+</html>
